@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost", "u792718613_Evan", "cLRN4dzVMK5qLhUJLJ", "u792718613_valance");
+$con = mysqli_connect("enter", "your", "own", "credentials");
 if (mysqli_connect_error()) {
     echo "Failed to connect to DB!";
 }

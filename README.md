@@ -1,31 +1,24 @@
 # Server Sided Files
 
-A easy to use anti-cheat switcher for Fortnite.
+An all in one URL for downloading an unlimited amount of files without giving up a direct download URL.
 
 **Evan#5948** is the sole creator and owner of this project.
 
 ## Usage
 
-- Rename the original FortniteLauncher.exe to 'Original.exe' in the Win64 folder
-- Move the FortniteLauncher.exe from the project to the Win64 folder
-- Launch through [EpicGamesLauncher](https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi?productName=unrealtournament)
+- Setup a SQL table called **files** with two rows called **name** and **code**
+- Enter your SQL credentials and customize the PHP files how you see fit
+- Test the server side by uploading a file and refreshing the page to get its download code
+- Replace the example URL in the c# project with yours and enter your file's code and a path
+- Test the client side by running and seeing if your file downloads
 
 ## How It Works
 
-The modified launcher intercepts arguments from EpicGamesLauncher and generates new arguments that pertain to a specific anti-cheat.
+The client side uses codes to download files from a static URL that is inaccessible from web browsers and third party clients.
 ```cs
-_antiCheat = new Process
-{
-  StartInfo =
-  {
-    FileName        = EAC_EXECUTABLE,
-    Arguments       = $"{formattedArgs} -nobe -fromfl=eac -fltoken={EAC_TOKEN}",
-    CreateNoWindow  = false
-  }
-};
+DownloadFile("EgN20hac73N6D9hXP4prISRsaNSSRoRX", @"C:\Path\Download\Example.exe");
 ```
 
 ## Known Issues
 
-- Every Fortnite update, Epic updates the **-fltoken** arguments and changes the way tokens are generated. The current tokens supplied will not work next update, ```Evan#3797``` on discord will teach you how to get the latest tokens.
-- If the runtime file swap fails or Epic adds some sort of new detection for this it will result in a game **kick**, but not a **ban**.
+- None so far!

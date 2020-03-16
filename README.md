@@ -17,6 +17,20 @@ An all in one URL for downloading an unlimited amount of files without giving up
 The client side uses codes to download files from a static URL that is inaccessible from web browsers and third party clients.
 ```cs
 DownloadFile("EgN20hac73N6D9hXP4prISRsaNSSRoRX", @"C:\Path\Download\Example.exe");
+
+private static void DownloadFile(string code, string path)
+{
+  var url = "http://domain.ltd/secure-files/download.php";
+  using (var client = new WebClient())
+  {
+    var values = new NameValueCollection  
+    {
+      { "code", code }
+    };
+    byte[] result = client.UploadValues(url, values);
+    File.WriteAllBytes(path, result);
+  }
+}
 ```
 
 ## Known Issues

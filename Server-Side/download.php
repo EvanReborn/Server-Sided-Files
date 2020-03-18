@@ -14,6 +14,7 @@ while ($row = mysqli_fetch_array($result))
     $file_url = 'uploads/' . $row['name'];
     break;
 }
+$result->close();
 
 header('Content-Type: application/octet-stream');
 header("Content-Transfer-Encoding: Binary"); 

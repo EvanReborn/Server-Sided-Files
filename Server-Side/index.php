@@ -9,23 +9,26 @@ if (isset($_POST['code'])) {
 }
 
 $result = mysqli_query($con, "SELECT * FROM files");
-echo "<br>";
-echo "<table class=\"table\" id=\"tests-table\" style=\"\">";
-echo "<tr>";
-echo "<th>Filename</th>";
-echo "<th>Code</th>";
-echo "<th>Options</th>";
-echo "</tr>";
-while ($row = mysqli_fetch_array($result)) {
-    echo "<tr><td>" . $row['name'] . "</td><td>" . $row['code'] . "</td><td>" . 
-    "<form method=\"POST\">" . 
-    "<input type=\"hidden\" id=\"code\" name=\"code\" value=\"" . $row['code'] . "\">" . 
-    "<input type=\"hidden\" id=\"name\" name=\"name\" value=\"" . $row['name'] . "\">" . 
-    "<button>Delete</button>" . 
-    "</form></td></tr>";
-}
-echo "</table>";
 ?>
+<br>
+<table class="table" id="tests-table" style="">
+<tr>
+<th>Filename</th>
+<th>Code</th>
+<th>Options</th>
+</tr>
+<?php
+while ($row = mysqli_fetch_array($result)) {
+    echo "<tr><td>" . $row['name'] . "</td><td>" . $row['code'] . "</td><td>"; ?>
+    <form method="POST">
+    <input type="hidden" id="code" name="code" value="<?php echo $row['code'] ?>" />
+    <input type="hidden" id="name" name="name" value="<?php echo $row['name'] ?>" />
+    <button>Delete</button>
+    </form>
+    </td></tr>
+<?php } ?>
+</table>
+
 <html>
     <style>
         #drop_file_zone {

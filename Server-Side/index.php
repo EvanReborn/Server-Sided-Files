@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_array($result)) {
     <button>Delete</button>
     </form>
     </td></tr>
-<?php } ?>
+<?php } $result->close(); ?>
 </table>
 
 <html>

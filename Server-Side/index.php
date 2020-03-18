@@ -1,8 +1,5 @@
 <?php
-$con = mysqli_connect("enter", "your", "own", "credentials");
-if (mysqli_connect_error()) {
-    echo "Failed to connect to DB!";
-}
+include("settings.php");
 
 if (isset($_POST['code'])) {
     $name = $_POST['name'];

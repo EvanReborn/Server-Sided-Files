@@ -2,7 +2,7 @@
 
 An all in one URL for downloading an unlimited amount of files without giving up a direct download URL.
 
-**Evan#5948** is the sole creator and owner of this project.
+**Sensuret#0001** is the sole creator and owner of this project.
 
 ## Usage
 

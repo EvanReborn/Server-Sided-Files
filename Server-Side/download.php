@@ -2,9 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] != "POST")
     die("Don't settle here. We did. We regret.");
     
-$con = mysqli_connect("enter", "your", "own", "credentials");
-if (mysqli_connect_error()) 
-    die("Failed to connect to DB!");
+include("settings.php");
 
 $code = $con->real_escape_string($_POST['code']);
 
@@ -16,6 +14,7 @@ while ($row = mysqli_fetch_array($result))
     $file_url = 'uploads/' . $row['name'];
     break;
 }
+$result->close();
 
 header('Content-Type: application/octet-stream');
 header("Content-Transfer-Encoding: Binary"); 

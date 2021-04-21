@@ -9,11 +9,7 @@ function RandomString($length) {
     return $randomString;
 }
 
-$con = mysqli_connect("enter", "your", "own", "credentials");
-if (mysqli_connect_error()) {
-    echo "Failed to connect to DB!";
-    return;
-}
+include("settings.php");
 
 $file = $_FILES['file']['name'];
 $code = RandomString(32);
